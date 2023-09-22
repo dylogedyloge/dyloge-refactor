@@ -1,9 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({ weight: ["400"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dyloge",
@@ -19,7 +20,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={ubuntu.className}>
+          <main className="">
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {children}
+            </ThemeProvider>
+          </main>
+        </body>
       </html>
     </ClerkProvider>
   );
