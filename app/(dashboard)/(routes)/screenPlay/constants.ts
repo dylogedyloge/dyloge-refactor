@@ -48,7 +48,6 @@ export const genreOptions = [
   },
   { value: "western", label: "Western" },
   { value: "war", label: "War" },
-  { value: "fantasy", label: "Fantasy" },
   {
     value: "romantic-comedy",
     label: "Romantic Comedy",

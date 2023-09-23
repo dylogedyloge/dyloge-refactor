@@ -58,7 +58,7 @@ const ArticlePage = () => {
   };
 
   return (
-    <div className="m-6 ">
+    <div className="m-6">
       <Card>
         <CardHeader>
           <CardTitle className="text-left">
