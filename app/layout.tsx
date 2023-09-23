@@ -21,11 +21,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={ubuntu.className}>
-          <main className="">
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {children}
-            </ThemeProvider>
-          </main>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <main>{children}</main>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -26,7 +26,7 @@ export const tools = [
   {
     label: "Story",
     icon: BsBookHalf,
-    color: "text-stone-300",
+    color: "text-neutral-300",
     href: "/story",
     description:
       "Discover effortless storytelling with AI. Write, edit, and download with ease!",

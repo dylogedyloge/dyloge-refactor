@@ -1,14 +1,5 @@
 import * as z from "zod";
 
-export const formSchema = z.object({
-  prompt: z.string().min(1, {
-    message: "Photo prompt is required",
-  }),
-  genre: z.string().min(1),
-
-  type: z.string().min(1),
-});
-
 export const typeOptions = [
   {
     value: "short-film",
@@ -63,3 +54,17 @@ export const genreOptions = [
     label: "Romantic Comedy",
   },
 ];
+
+const characterSchema = z.object({
+  name: z.string().max(80),
+  age: z.string().max(80),
+  description: z.string().max(120),
+});
+
+export const formSchema = z.object({
+  type: z.enum(typeOptions.map((option) => option.value) as [string]),
+  genre: z
+    .array(z.enum(genreOptions.map((option) => option.value) as [string]))
+    .max(3),
+  characters: z.array(characterSchema).max(10),
+});

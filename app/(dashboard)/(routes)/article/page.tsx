@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/card";
 
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 const ArticlePage = () => {
   const proModal = useProModal();
@@ -57,62 +58,58 @@ const ArticlePage = () => {
   };
 
   return (
-    <div>
-      <div className="mx-6 relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-        <div className="w-full ">
-          <Card className="pt-6">
-            <CardHeader>
-              <CardTitle>
-                <Heading title="Article" icon={BsBookHalf} />
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-6">
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="grid gap-4"
-                >
-                  <label>
-                    <div>Topic</div>
-                  </label>
-                  <FormField
-                    name="topic"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Textarea maxLength={80} {...field} />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                  <label>
-                    <div>
-                      Keywords{" "}
-                      <div className="prose-sm text-xs ">
-                        Seperate with comma
-                      </div>
-                    </div>
-                  </label>
-                  <FormField
-                    name="keywords"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Textarea maxLength={80} {...field} />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
+    <div className="m-6 ">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-left">
+            <Heading
+              title="Article"
+              icon={BsBookHalf}
+              description="SEO supercharged! Craft, expand, and download articles effortlessly with AI."
+            />
+          </CardTitle>
+        </CardHeader>
+        <Separator />
+        <CardContent className="grid gap-6 py-6">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+              <label>
+                <div>Topic</div>
+              </label>
+              <FormField
+                name="topic"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea maxLength={80} {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <label>
+                <div>
+                  Keywords{" "}
+                  <div className="prose-sm text-xs ">Seperate with comma</div>
+                </div>
+              </label>
+              <FormField
+                name="keywords"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea maxLength={80} {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
 
-                  <Button className="w-full" type="submit" disabled={isLoading}>
-                    Generate
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+              <Button className="w-full" type="submit" disabled={isLoading}>
+                Generate
+              </Button>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
     </div>
   );
 };
